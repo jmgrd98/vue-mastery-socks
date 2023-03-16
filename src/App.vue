@@ -16,7 +16,7 @@
         <li v-for="detail in details" :key="detail">{{detail}}</li>
       </ul>
 
-      <ul>
+      <ul class="colors">
         <li
             v-for="variant in variants"
             :key="variant.id"
@@ -27,8 +27,8 @@
       </ul>
     </div>
 
-    <button class="button" v-on:click="addToCart">Add to Cart</button>
-    <span>{{cart}}</span>
+    <button class="button" v-on:click="addToCart" :disabled="!inStock" :class="{disabledBtn: !inStock}">Add to Cart</button>
+    <span>Cart: {{cart}}</span>
 
   </div>
   </main>
@@ -87,6 +87,11 @@ export default {
 
   }
 
+  .colors{
+    display: flex;
+    gap: 5px;
+  }
+
   .color-circle{
     width: 50px;
     height: 50px;
@@ -121,6 +126,16 @@ export default {
       border: none;
       border-radius: 5px;
       cursor: pointer;
+    }
+
+    .disabledBtn{
+      background-color: #d8d8d8;
+      cursor: not-allowed;
+    }
+
+    span{
+      background-color: dodgerblue;
+      padding: 10px;
     }
 
 
