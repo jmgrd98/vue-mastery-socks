@@ -3,7 +3,7 @@
   <HeaderComponent/>
 
   <main>
-  <h1>{{product}}</h1>
+  <h1>{{brand}} {{product}}</h1>
 
   <div class="product-summary">
     <img v-bind:src="image" alt="Green Socks"/>
@@ -47,6 +47,7 @@ export default {
   },
   data(){
     return {
+      brand: 'Vue Mastery',
       product: 'Socks',
       inStock: true,
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMQAM-2DmaQkQAk4CHG_KagUFvO0j0JGAi0IiXKI_0oAe9TVZGnmp1DwmrYWeBUwdJZGU',

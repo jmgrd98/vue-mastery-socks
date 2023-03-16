@@ -1,5 +1,5 @@
 <template>
-  <header>Vue Mastery Socks</header>
+  <header></header>
 </template>
 
 <script>
@@ -16,10 +16,7 @@
 <style>
   header{
     width: 100%;
-    background-color: green;
-    padding: 20px;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+    height: 50px;
+    background-color: darkgreen;
   }
 </style>
