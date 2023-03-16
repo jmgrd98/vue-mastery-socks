@@ -6,9 +6,16 @@
   <h1>{{product}}</h1>
 
   <div class="product-summary">
-    <img v-bind:src="image"/>
+    <img v-bind:src="image" alt="Green Socks"/>
 
-    <p>Lorem</p>
+    <div class="product-description">
+    <h2 v-if="inStock">In Stock</h2>
+    <h2 v-else>Out of Stock</h2>
+
+      <ul>
+      <li v-for="detail in details" v-bind:key="detail">{{detail}}</li>
+      </ul>
+    </div>
 
   </div>
   </main>
@@ -29,7 +36,8 @@ export default {
     return {
       product: 'Socks',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMQAM-2DmaQkQAk4CHG_KagUFvO0j0JGAi0IiXKI_0oAe9TVZGnmp1DwmrYWeBUwdJZGU',
-
+      inStock: true,
+      details: ['50% cotton', '30% wool', '20% polyester']
     }
   }
 }
