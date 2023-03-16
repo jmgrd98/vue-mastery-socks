@@ -13,9 +13,16 @@
     <h2 v-else>Out of Stock</h2>
 
       <ul>
-      <li v-for="detail in details" v-bind:key="detail">{{detail}}</li>
+        <li v-for="detail in details" :key="detail">{{detail}}</li>
+      </ul>
+
+      <ul>
+        <li v-for="variant in variants" :key="variant.id">{{variant.color}}</li>
       </ul>
     </div>
+
+    <button class="button" v-on:click="cart++">Add to Cart</button>
+    <span>{{cart}}</span>
 
   </div>
   </main>
@@ -37,7 +44,12 @@ export default {
       product: 'Socks',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMQAM-2DmaQkQAk4CHG_KagUFvO0j0JGAi0IiXKI_0oAe9TVZGnmp1DwmrYWeBUwdJZGU',
       inStock: true,
-      details: ['50% cotton', '30% wool', '20% polyester']
+      cart: 0,
+      details: ['50% cotton', '30% wool', '20% polyester'],
+      variants: [
+        {id: 2234, color: 'green'},
+        {id: 2235, color: 'blue'},
+      ]
     }
   }
 }
@@ -68,9 +80,24 @@ export default {
     width: 50%;
   }
 
+  .product-description{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
     img{
       border: 1px solid gray;
       padding: 10px;
+    }
+
+    button{
+      padding: 10px;
+      color: white;
+      background-color: olive;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
 
