@@ -17,7 +17,13 @@
       </ul>
 
       <ul>
-        <li v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">{{variant.color}}</li>
+        <li
+            v-for="variant in variants"
+            :key="variant.id"
+            @mouseover="updateImage(variant.image)"
+            class="color-circle"
+            :style="{backgroundColor: variant.color}">
+        </li>
       </ul>
     </div>
 
@@ -79,6 +85,14 @@ export default {
     flex-direction: column;
     align-items: center;
 
+  }
+
+  .color-circle{
+    width: 50px;
+    height: 50px;
+    margin-top: 8px;
+    border: 2px solid #d8d8d8;
+    border-radius: 50%;
   }
 
   .product-summary{
