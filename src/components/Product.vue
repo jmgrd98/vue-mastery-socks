@@ -34,8 +34,6 @@
           Add to Cart
         </button>
 
-        <span>Cart: {{ cart }}</span>
-
         </div>
 
       </div>
@@ -54,7 +52,6 @@ export default {
     return {
       brand: 'Vue Mastery',
       product: 'Socks',
-      cart: 0,
       selectedVariant: 0,
       details: ['50% cotton', '30% wool', '20% polyester'],
       variants: [
