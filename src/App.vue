@@ -54,6 +54,7 @@ export default {
       inStock: true,
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMQAM-2DmaQkQAk4CHG_KagUFvO0j0JGAi0IiXKI_0oAe9TVZGnmp1DwmrYWeBUwdJZGU',
       cart: 0,
+      selectedVariant: 0,
       details: ['50% cotton', '30% wool', '20% polyester'],
       variants: [
         {
