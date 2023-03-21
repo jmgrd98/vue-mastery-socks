@@ -1,10 +1,8 @@
 <template>
   <div>
 
-    <main>
-
       <div class="product-summary">
-        <img v-bind:src="image" alt="Green Socks"/>
+        <img v-bind:src="image" alt="Product image"/>
 
         <div class="product-description">
           <h2 v-if="inStock">In Stock</h2>
@@ -23,15 +21,20 @@
                 :style="{backgroundColor: variant.color}">
             </li>
           </ul>
+
         </div>
 
-        <button class="button" v-on:click="addToCart" :disabled="!inStock" :class="{disabledBtn: !inStock}">Add to
-          Cart
+        <button
+            class="button"
+            v-on:click="addToCart"
+            :disabled="!inStock"
+            :class="{disabledBtn: !inStock}">
+          Add to Cart
         </button>
+
         <span>Cart: {{ cart }}</span>
 
       </div>
-    </main>
 
   </div>
 </template>
@@ -100,14 +103,6 @@ export default {
   font-family: "Roboto Thin", sans-serif;
 }
 
-main {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-
 .colors {
   display: flex;
   gap: 5px;
@@ -133,6 +128,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-left: 20px;
 }
 
 img {
@@ -147,6 +143,8 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin: 20px;
+  width: 100%;
 }
 
 .disabledBtn {
