@@ -3,7 +3,7 @@
     <HeaderComponent/>
 
     <main>
-      <h1>{{ brand }} {{ product }}</h1>
+      <h1>{{title}}</h1>
 
       <div class="product-summary">
         <img v-bind:src="image" alt="Green Socks"/>
@@ -78,6 +78,14 @@ export default {
     },
     updateImage(variantImage) {
       this.image = variantImage
+    },
+    updateVariant(index) {
+      this.selectedVariant = index;
+    }
+  },
+  computed: {
+    title() {
+      return this.brand + ' ' + this.product;
     }
   }
 }
