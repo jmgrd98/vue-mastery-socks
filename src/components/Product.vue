@@ -1,27 +1,47 @@
 <template>
   <div>
-    <HeaderComponent/>
 
     <main>
-      <h1>{{ title }}</h1>
 
-      <ProductComponent/>
-      <ProductComponent/>
+      <div class="product-summary">
+        <img v-bind:src="image" alt="Green Socks"/>
 
+        <div class="product-description">
+          <h2 v-if="inStock">In Stock</h2>
+          <h2 v-else>Out of Stock</h2>
+
+          <ul>
+            <li v-for="detail in details" :key="detail">{{ detail }}</li>
+          </ul>
+
+          <ul class="colors">
+            <li
+                v-for="(variant, index) in variants"
+                :key="variant.id"
+                @mouseover="updateVariant(index)"
+                class="color-circle"
+                :style="{backgroundColor: variant.color}">
+            </li>
+          </ul>
+        </div>
+
+        <button class="button" v-on:click="addToCart" :disabled="!inStock" :class="{disabledBtn: !inStock}">Add to
+          Cart
+        </button>
+        <span>Cart: {{ cart }}</span>
+
+      </div>
     </main>
+
   </div>
 </template>
 
 <script>
 
-import HeaderComponent from './components/Header';
-import ProductComponent from './components/Product'
-
 export default {
-  name: 'App',
+  name: 'ProductComponent',
   components: {
-    HeaderComponent,
-    ProductComponent,
+
   },
   data() {
     return {
@@ -88,6 +108,51 @@ main {
 
 }
 
+.colors {
+  display: flex;
+  gap: 5px;
+}
+
+.color-circle {
+  width: 50px;
+  height: 50px;
+  margin-top: 8px;
+  border: 2px solid #d8d8d8;
+  border-radius: 50%;
+}
+
+.product-summary {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.product-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+img {
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  color: white;
+  background-color: olive;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.disabledBtn {
+  background-color: #d8d8d8;
+  cursor: not-allowed;
+}
 
 span {
   background-color: dodgerblue;
