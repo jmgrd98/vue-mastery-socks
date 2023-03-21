@@ -24,6 +24,8 @@
 
         </div>
 
+        <div class="cart">
+
         <button
             class="button"
             v-on:click="addToCart"
@@ -33,6 +35,8 @@
         </button>
 
         <span>Cart: {{ cart }}</span>
+
+        </div>
 
       </div>
 
@@ -136,6 +140,11 @@ img {
   padding: 10px;
 }
 
+.cart{
+  margin-left: 20px;
+  width: 100%;
+}
+
 button {
   padding: 10px;
   color: white;
@@ -144,7 +153,6 @@ button {
   border-radius: 5px;
   cursor: pointer;
   margin: 20px;
-  width: 100%;
 }
 
 .disabledBtn {
@@ -155,6 +163,7 @@ button {
 span {
   background-color: dodgerblue;
   padding: 10px;
+  width: 100%;
 }
 
 
