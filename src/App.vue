@@ -5,7 +5,7 @@
     <main>
       <h1>{{ title }}</h1>
 
-      <ProductComponent/>
+      <ProductComponent :premium="premium"/>
       <ProductComponent/>
 
       <span>Cart: {{ cart }}</span>
@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       cart: 0,
+      premium: true,
     }
   },
   methods: {

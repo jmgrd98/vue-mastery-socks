@@ -8,6 +8,8 @@
           <h2 v-if="inStock">In Stock</h2>
           <h2 v-else>Out of Stock</h2>
 
+          <p>Shipping: {{shipping}}</p>
+
           <ul>
             <li v-for="detail in details" :key="detail">{{ detail }}</li>
           </ul>
@@ -54,6 +56,12 @@ export default {
       product: 'Socks',
       selectedVariant: 0,
       details: ['50% cotton', '30% wool', '20% polyester'],
+      props: {
+        premium: {
+          type: Boolean,
+          required: true,
+        }
+      },
       variants: [
         {
           id: 2234,
@@ -90,6 +98,12 @@ export default {
     },
     inStock() {
       return this.variants[this.selectedVariant].quantity;
+    },
+    shipping() {
+      if(this.premium) {
+        return 'Free'
+      }
+      return 2.99
     }
   }
 }
@@ -145,11 +159,12 @@ img {
 button {
   padding: 10px;
   color: white;
-  background-color: olive;
+  background-color: midnightblue;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin: 20px;
+  width: 100%;
 }
 
 .disabledBtn {
