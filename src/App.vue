@@ -5,11 +5,12 @@
     <main>
       <h1>{{ title }}</h1>
 
-      <ProductComponent :premium="premium"/>
-      <ProductComponent/>
+      <ProductComponent :premium="premium" @add-to-cart="updateCart"/>
+      <ProductComponent @add-to-cart="updateCart"/>
 
-      <span>Cart: {{ cart }}</span>
+      <span>Cart: {{ cart.length }}</span>
 
+      <ReviewFormComponent @review-submitted="addReview"/>
     </main>
   </div>
 </template>
@@ -18,21 +19,33 @@
 
 import HeaderComponent from './components/Header';
 import ProductComponent from './components/Product'
+import ReviewFormComponent from './components/ReviewForm'
 
 export default {
   name: 'App',
+  title: '',
   components: {
     HeaderComponent,
     ProductComponent,
+    ReviewFormComponent
   },
   data() {
     return {
-      cart: 0,
+      cart: [],
+      brand: 'Vue Mastery',
+      product: 'Socks',
       premium: true,
     }
   },
   methods: {
-
+    updateCart(id) {
+      this.cart.push(id);
+    }
+  },
+  computed: {
+    title() {
+      return this.brand + ' ' + this.product
+    }
   }
 }
 </script>
